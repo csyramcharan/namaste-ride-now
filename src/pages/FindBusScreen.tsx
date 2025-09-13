@@ -5,6 +5,7 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { ArrowLeft, MapPin, Navigation, Clock, Star, User } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
+import VijayawadaMap from "@/components/VijayawadaMap";
 
 const FindBusScreen = () => {
   const navigate = useNavigate();
@@ -144,6 +145,19 @@ const FindBusScreen = () => {
           {/* Search Results */}
           {searchResults && (
             <div className="space-y-4 animate-slide-up">
+              {/* Map View */}
+              <Card className="shadow-card">
+                <CardHeader>
+                  <CardTitle className="text-foreground">Route Map</CardTitle>
+                </CardHeader>
+                <CardContent className="p-4">
+                  <VijayawadaMap 
+                    height="250px" 
+                    showControls={false}
+                  />
+                </CardContent>
+              </Card>
+
               <h3 className="text-lg font-semibold text-foreground">
                 Available Buses ({searchResults.length})
               </h3>

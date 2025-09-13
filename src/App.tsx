@@ -10,6 +10,8 @@ import HomeScreen from "./pages/HomeScreen";
 import TrackBusScreen from "./pages/TrackBusScreen";
 import FindBusScreen from "./pages/FindBusScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import ComplainScreen from "./pages/ComplainScreen";
+import ContactScreen from "./pages/ContactScreen";
 import VoiceAssistant from "./components/VoiceAssistant";
 import NotFound from "./pages/NotFound";
 
@@ -82,6 +84,26 @@ const App = () => {
                 element={
                   isLoggedIn ? (
                     <ProfileScreen onLogout={handleLogout} />
+                  ) : (
+                    <LoginScreen onLogin={handleLogin} />
+                  )
+                } 
+              />
+              <Route 
+                path="/complain" 
+                element={
+                  isLoggedIn ? (
+                    <ComplainScreen />
+                  ) : (
+                    <LoginScreen onLogin={handleLogin} />
+                  )
+                } 
+              />
+              <Route 
+                path="/contact" 
+                element={
+                  isLoggedIn ? (
+                    <ContactScreen />
                   ) : (
                     <LoginScreen onLogin={handleLogin} />
                   )

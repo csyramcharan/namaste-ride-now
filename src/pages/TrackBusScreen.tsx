@@ -4,6 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { ArrowLeft, MapPin, Navigation, Clock, Users } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
+import VijayawadaMap from "@/components/VijayawadaMap";
 
 const TrackBusScreen = () => {
   const navigate = useNavigate();
@@ -88,23 +89,11 @@ const TrackBusScreen = () => {
         ) : (
           /* Tracking Interface */
           <div className="space-y-6 animate-fade-in">
-            {/* Map Placeholder */}
-            <Card className="shadow-card">
-              <CardContent className="p-0">
-                <div className="h-64 bg-gradient-to-br from-light-green to-fresh-green rounded-t-lg flex items-center justify-center relative overflow-hidden">
-                  <div className="text-center text-foreground">
-                    <MapPin className="w-12 h-12 mx-auto mb-2 animate-pulse-soft" />
-                    <p className="text-lg font-semibold">Live Bus Tracking</p>
-                    <p className="text-sm opacity-80">Bus is 2.5 km away</p>
-                  </div>
-                  
-                  {/* Animated bus indicator */}
-                  <div className="absolute top-4 right-4 w-3 h-3 bg-green-500 rounded-full animate-pulse-soft">
-                    <div className="absolute inset-0 bg-green-500 rounded-full animate-ping opacity-75"></div>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
+            {/* Interactive Map */}
+            <VijayawadaMap 
+              height="300px" 
+              showControls={true}
+            />
 
             {/* Bus Information */}
             <Card className="shadow-card">

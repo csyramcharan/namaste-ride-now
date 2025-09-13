@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
-import { MapPin, Search, User, Menu } from "lucide-react";
+import { MapPin, Search, User, Menu, MessageSquare, Phone } from "lucide-react";
 import { useNavigate } from 'react-router-dom';
 import namasteIcon from "@/assets/namaste-icon.png";
 
@@ -19,6 +19,14 @@ const HomeScreen = ({ onLogout }) => {
 
   const handleProfile = () => {
     navigate('/profile');
+  };
+
+  const handleComplain = () => {
+    navigate('/complain');
+  };
+
+  const handleContact = () => {
+    navigate('/contact');
   };
 
   return (
@@ -153,6 +161,24 @@ const HomeScreen = ({ onLogout }) => {
           >
             <Search className="w-6 h-6 text-muted-foreground" />
             <span className="text-xs text-muted-foreground">Find</span>
+          </Button>
+
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center gap-1 h-auto py-2 px-4"
+            onClick={handleComplain}
+          >
+            <MessageSquare className="w-6 h-6 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">Complain</span>
+          </Button>
+
+          <Button
+            variant="ghost"
+            className="flex flex-col items-center gap-1 h-auto py-2 px-4"
+            onClick={handleContact}
+          >
+            <Phone className="w-6 h-6 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">Contact</span>
           </Button>
 
           <Button
